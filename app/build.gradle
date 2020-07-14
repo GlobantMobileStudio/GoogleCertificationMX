@@ -1,0 +1,109 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+def keystorePropertiesFile = rootProject.file("buildsystem/keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+    def config = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion config["compileSdkVersion"]
+    buildToolsVersion config["buildToolsVersion"]
+    defaultConfig {
+        minSdkVersion config["minSdkVersion"]
+        targetSdkVersion config["targetSdkVersion"]
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+            v1SigningEnabled true
+            v2SigningEnabled true
+            storeFile file(keystoreProperties['STORE_PATH_RELEASE'])
+            storePassword keystoreProperties['STORE_PASSWORD_RELEASE']
+            keyAlias keystoreProperties['KEY_ALIAS_RELEASE']
+            keyPassword keystoreProperties['KEY_PASSWORD_RELEASE']
+        }
+        debug {
+            v1SigningEnabled true
+            v2SigningEnabled true
+            storeFile file(keystoreProperties['STORE_PATH_DEBUG'])
+            storePassword keystoreProperties['STORE_PASSWORD_DEBUG']
+            keyAlias keystoreProperties['KEY_ALIAS_DEBUG']
+            keyPassword keystoreProperties['KEY_PASSWORD_DEBUG']
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable = false
+        }
+        debug {
+            signingConfig signingConfigs.debug
+            debuggable = true
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-[Q]"
+        }
+    }
+    flavorDimensions "default"
+    productFlavors.whenObjectAdded { flavor ->
+        def flavorData = rootProject.ext[flavor.name]
+        flavor.versionCode flavorData.versionCode
+        flavor.versionName flavorData.versionName
+    }
+    productFlavors {
+        application {
+            dimension "default"
+        }
+    }
+    applicationVariants.all { variant ->
+        def idSuffix = variant.buildType.applicationIdSuffix != null ? variant.buildType.applicationIdSuffix : ""
+        variant.productFlavors.each { flavor ->
+            def flavorData = rootProject.ext[flavor.name]
+            def appName = flavorData.appName
+            def applicationId = flavorData.applicationId
+
+            if (variant.buildType.name == "debug") {
+                appName = "[Q] " + flavorData.appName
+            }
+
+            logVariant(variant, "════════════════════════════════════════════════")
+            logVariant(variant, "$appName")
+            logVariant(variant, "════════════════════════════════════════════════")
+            logVariant(variant, "$applicationId$idSuffix")
+
+            setVariantResValue(variant, "string", "app_name", appName)
+            setVariantBuildConfigField(variant, "String", "host", flavorData.host)
+        }
+
+        variant.outputs.all {
+            outputFileName = "${variant.name}.v${variant.versionCode}~${variant.versionName}.apk"
+            logVariant(variant, "$outputFileName")
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.3.0-alpha01'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    implementation project(':android-core')
+
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

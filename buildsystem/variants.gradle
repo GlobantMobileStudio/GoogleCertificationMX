@@ -1,0 +1,54 @@
+ext {
+    application = [
+            versionCode : 1,
+            versionName : "1.0.0",
+            applicationId : "com.studiomobile.developer",
+            appName : "Google certification MX",
+
+            host: [
+                    debug: "https://reqres.in",
+                    release: "https://real"
+            ]
+    ]
+
+    formatValue = { variant, type, value ->
+        if (type.toLowerCase().equals("string")) {
+            value = "\"${value}\""
+        } else {
+            value = "${value}"
+        }
+
+        return value
+    }
+
+    setVariantResValue = { variant, type, key, entry ->
+        def value = formatValue(variant, type, entry)
+        variant.resValue(type, key, value)
+
+        logVariant(variant, "$key: $value")
+    }
+
+    setVariantBuildConfigField = { variant, type, key, entry ->
+        def value = formatValue(variant, type, entry.get(variant.buildType.name))
+        variant.buildConfigField(type, key, value)
+
+        logVariant(variant, "$key: $value")
+    }
+
+    logVariant = { variant, message ->
+        def variantName = variant.buildType.name
+        def color = variantName == "debug" ? "green" : "blue"
+        log(color, message)
+    }
+
+    log = { color, message ->
+        // https://github.com/marco-ruiz/stackoverflow-qa/blob/master/so-common/src/main/groovy/so/a56139852/coloringTask.gradle
+        // https://en.wikipedia.org/wiki/ANSI_escape_code
+        // black = 30, red = 31, green = 32, yellow = 33, blue = 34, magenta = 35, cyan = 36, white = 37
+        def style = 'black red green yellow blue magenta cyan white'
+                .split().toList().withIndex(30)
+                .collectEntries { key, val -> [(key) : { "\033[${val}m${it}\033[0m" }] }
+
+        println("${style[color](message)}")
+    }
+}

@@ -1,0 +1,70 @@
+{
+  "competencies": [
+    {
+      "title": "Android core",
+      "link": "https://developers.google.com/certification/associate-android-developer/study-guide/android-core",
+      "topics": [
+        {
+          "title": "Toasts",
+          "link": "https://developer.android.com/guide/topics/ui/notifiers/toasts",
+          "class_name": ""
+        },
+        {
+          "title": "Snackbar",
+          "link": "https://developer.android.com/reference/android/support/design/widget/Snackbar",
+          "class_name": ""
+        },
+        {
+          "title": "Localize your app",
+          "link": "https://developer.android.com/guide/topics/resources/localization",
+          "class_name": "com.studiomobile.androidcore.localization.LocalizeActivity"
+        },
+        {
+          "title": "Application fundamentals",
+          "link": "https://developer.android.com/guide/components/fundamentals",
+          "class_name": ""
+        },
+        {
+          "title": "Create a notification",
+          "link": "https://developer.android.com/training/notify-user/build-notification",
+          "class_name": ""
+        },
+        {
+          "title": "AndroidX overview",
+          "link": "https://developer.android.com/jetpack/androidx",
+          "class_name": ""
+        },
+        {
+          "title": "Getting started with Jetpack",
+          "link": "https://developer.android.com/jetpack/docs/getting-started",
+          "class_name": ""
+        },
+        {
+          "title": "Android KTX (Kotlin)",
+          "link": "https://developer.android.com/kotlin/ktx",
+          "class_name": ""
+        }
+      ]
+    },
+    {
+      "title": "User interface",
+      "link": "https://developers.google.com/certification/associate-android-developer/study-guide/user-interface",
+      "topics": null
+    },
+    {
+      "title": "Data management",
+      "link": "https://developers.google.com/certification/associate-android-developer/study-guide/data-management",
+      "topics": null
+    },
+    {
+      "title": "Debugging",
+      "link": "https://developers.google.com/certification/associate-android-developer/study-guide/debugging",
+      "topics": null
+    },
+    {
+      "title": "Testing",
+      "link": "https://developers.google.com/certification/associate-android-developer/study-guide/testing",
+      "topics": null
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+include ':app', ':android-core', ':user-interface', ':data-management', ':debugging', ':testing'
+rootProject.name='Android developer'
