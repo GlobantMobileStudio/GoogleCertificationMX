@@ -1,8 +1,6 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorAccent">@color/secondaryColor</item>
@@ -19,13 +17,41 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="AppTheme.AppBarOverlay.Light" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="AppTheme.AppBarOverlay.Light" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:colorBackground">@color/windowBackground</item>
         <item name="android:textColor">#FFF</item>
+    </style>
+
+    <style name="BoldTextStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:fontFamily">@font/avenir_next_bold</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">@dimen/regular_text_size</item>
+    </style>
+
+    <style name="RegularTextStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:fontFamily">@font/avenir_next_regular</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">@dimen/regular_text_size</item>
+    </style>
+
+    <style name="LightTextStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:fontFamily">@font/avenir_next_light</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">@dimen/regular_text_size</item>
+    </style>
+
+    <style name="PrimaryOutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textAppearance">@style/RegularTextStyle</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">@dimen/regular_text_size</item>
+        <item name="strokeColor">@color/primaryColor</item>
     </style>
 
 </resources>
