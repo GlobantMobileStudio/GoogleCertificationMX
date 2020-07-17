@@ -1,91 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".features.overview.OverviewActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:adjustViewBounds="false"
-        android:src="@drawable/background"/>
-
-    <TextView
-        android:id="@+id/textViewCurrentUser"
-        style="@style/TextAppearance.MaterialComponents.Headline4"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/primaryTextColor"
-        android:paddingStart="@dimen/layout_large_margin"
-        android:paddingEnd="@dimen/layout_large_margin"
-        android:paddingTop="@dimen/layout_margin"
-        android:paddingBottom="0dp"
-        android:text="Current user"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewPercentage"
-        style="@style/TextAppearance.MaterialComponents.Subtitle1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingStart="@dimen/layout_large_margin"
-        android:paddingEnd="@dimen/layout_large_margin"
-        android:text="5% completado"
-        android:textColor="@color/primaryTextColor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCurrentUser" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/layout_medium_margin" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
+        android:id="@+id/endGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/layout_medium_margin" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55" />
+        app:layout_constraintGuide_percent="0.06" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/decoratorViewGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="false"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/decoratorView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/secondaryColor"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintTop_toTopOf="@+id/decoratorViewGuideline" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/competenciesRecyclerView"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textViewCurrentUser"
+        style="@style/BoldTextStyle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/windowBackground"
-        android:elevation="6dp"
-        android:layout_margin="@dimen/layout_large_margin"
-        android:paddingTop="@dimen/layout_huge_margin"
-        android:paddingBottom="0dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:itemCount="5"
-        tools:listitem="@layout/competency_item_list"
-        tools:orientation="vertical"
-        tools:scrollbars="vertical" />
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="Amanda Smith"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="@dimen/header_text_size"
+        app:layout_constraintEnd_toEndOf="@id/profileCircleImageView"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="@id/topGuideline" />
+
+    <TextView
+        android:id="@+id/textViewPercentage"
+        style="@style/RegularTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_small_margin"
+        android:gravity="center"
+        android:text="5% completado"
+        android:textColor="@color/primaryTextColor"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCurrentUser" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="64dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:elevation="6dp"
-        android:src="@drawable/ic_person_black_68"
+        android:id="@+id/profileCircleImageView"
+        android:layout_width="@dimen/overview_frag_profile_image_size"
+        android:layout_height="@dimen/overview_frag_profile_image_size"
+        android:layout_marginEnd="@dimen/layout_large_margin"
+        android:elevation="@dimen/layout_margin"
+        android:src="@drawable/dev"
         app:civ_circle_background_color="@color/windowBackground"
-        app:civ_border_width="0.5dp"
-        app:civ_border_color="@android:color/darker_gray"/>
+        app:layout_constraintBottom_toBottomOf="@id/competenciesBarrier"
+        app:layout_constraintEnd_toEndOf="@id/competenciesCardView"
+        app:layout_constraintTop_toTopOf="@id/competenciesBarrier" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/competenciesBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="competenciesCardView" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/competenciesCardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/layout_margin"
+        app:cardElevation="@dimen/layout_small_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/competenciesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:paddingTop="@dimen/layout_huge_margin"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="5"
+            tools:listitem="@layout/competency_item_list"
+            tools:orientation="vertical"
+            tools:scrollbars="vertical" />
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
