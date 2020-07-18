@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/overview_frag_competency_item_height"
+    android:layout_height="@dimen/home_frag_theme_item_height"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
@@ -35,7 +35,7 @@
 
     <ImageView
         android:id="@+id/arrowImageView"
-        android:layout_width="@dimen/overview_frag_competency_item_arrow_width"
+        android:layout_width="@dimen/home_frag_theme_item_arrow_width"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
         android:src="@drawable/arrow_secondary_color"

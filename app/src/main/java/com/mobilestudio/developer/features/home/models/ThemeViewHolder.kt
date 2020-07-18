@@ -1,15 +1,15 @@
-package com.mobilestudio.developer.features.overview
+package com.mobilestudio.developer.features.home.models
 
 import android.view.View
 import com.mobilestudio.developer.core.adapter.BaseViewHolder
-import kotlinx.android.synthetic.main.competency_item_list.view.*
+import kotlinx.android.synthetic.main.theme_item_list.view.*
 
-class CompetencyViewHolder(container: View): BaseViewHolder<CompetencyArea>(container) {
+class ThemeViewHolder(container: View) : BaseViewHolder<Theme>(container) {
 
     private val titleTextView = container.titleTextView
     private val progressTextView = container.progressTextView
 
-    override fun bind(item: CompetencyArea) {
+    override fun bind(item: Theme) {
         super.bind(item)
 
         with(item) {
@@ -17,4 +17,5 @@ class CompetencyViewHolder(container: View): BaseViewHolder<CompetencyArea>(cont
             progressTextView.text = "0 / ${this.topics?.size ?: 0}"
         }
     }
+
 }
