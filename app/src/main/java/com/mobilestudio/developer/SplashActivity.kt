@@ -1,10 +1,9 @@
 package com.mobilestudio.developer
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.os.Handler
-import com.mobilestudio.developer.features.overview.OverviewActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.mobilestudio.developer.features.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -12,7 +11,7 @@ class SplashActivity : AppCompatActivity() {
 
     private val runnable = Runnable {
         if (!isFinishing) {
-            startActivity(Intent(applicationContext, OverviewActivity::class.java))
+            startActivity(Intent(applicationContext, MainActivity::class.java))
             finish()
         }
     }
@@ -26,4 +25,5 @@ class SplashActivity : AppCompatActivity() {
         super.onPause()
         handler.removeCallbacks(runnable)
     }
+
 }
