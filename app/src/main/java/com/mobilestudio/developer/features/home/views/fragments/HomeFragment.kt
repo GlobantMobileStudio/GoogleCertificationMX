@@ -10,12 +10,11 @@ import com.google.gson.Gson
 import com.mobilestudio.developer.databinding.FragmentHomeBinding
 import com.mobilestudio.developer.features.home.LocalConfiguration
 import com.mobilestudio.developer.features.home.adapters.ThemeAdapter
+import com.mobilestudio.developer.features.home.models.Theme
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-
-    private var themesAdapter: ThemeAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,17 +27,13 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        themesAdapter = ThemeAdapter()
-
-        val json = getContent()
-        val data = Gson().fromJson(json, LocalConfiguration::class.java)
-        themesAdapter?.addAll(data.competencies)
-
-        setupComponents()
+        setupThemes()
     }
 
-    private fun setupComponents() {
-        themesAdapter?.listener = { theme, _ ->
+    private fun setupThemes() {
+        val themesAdapter = ThemeAdapter()
+        themesAdapter.addAll(retrieveThemes())
+        themesAdapter.listener = { theme, _ ->
             findNavController().navigate(
                 HomeFragmentDirections.actionHomeFragmentToSubThemesFragment(theme)
             )
@@ -47,6 +42,12 @@ class HomeFragment : Fragment() {
             setHasFixedSize(true)
             adapter = themesAdapter
         }
+    }
+
+    private fun retrieveThemes(): List<Theme> {
+        val json = getContent()
+        val data = Gson().fromJson(json, LocalConfiguration::class.java)
+        return data.competencies
     }
 
     private fun getContent(): String {
