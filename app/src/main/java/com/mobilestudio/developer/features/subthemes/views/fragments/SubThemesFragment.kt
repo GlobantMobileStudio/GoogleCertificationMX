@@ -19,23 +19,26 @@ class SubThemesFragment : Fragment() {
     private val args: SubThemesFragmentArgs by navArgs()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSubThemesBinding.inflate(layoutInflater, container, false)
+        binding = FragmentSubThemesBinding.inflate(inflater, container, false).apply {
+            this.lifecycleOwner = viewLifecycleOwner
+            this.executePendingBindings()
+        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        subThemesAdapter = SubThemeAdapter()
-        args.theme.topics?.let { subThemesAdapter?.addAll(it) }
-
-        setupComponents()
+        setupSubThemes()
     }
 
-    private fun setupComponents() {
+    private fun setupSubThemes() {
+        subThemesAdapter = SubThemeAdapter()
+        args.theme.topics?.let { subThemesAdapter?.addAll(it) }
         subThemesAdapter?.listener = { subTheme, _ ->
             findNavController().navigate(
                 SubThemesFragmentDirections.actionSubThemesFragmentToThemeDetailFragment(subTheme)

@@ -16,11 +16,17 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
 
+    private var themesAdapter: ThemeAdapter? = null
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false).apply {
+            this.lifecycleOwner = viewLifecycleOwner
+            this.executePendingBindings()
+        }
         return binding.root
     }
 
@@ -31,9 +37,9 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupThemes() {
-        val themesAdapter = ThemeAdapter()
-        themesAdapter.addAll(retrieveThemes())
-        themesAdapter.listener = { theme, _ ->
+        themesAdapter = ThemeAdapter()
+        themesAdapter?.addAll(retrieveThemes())
+        themesAdapter?.listener = { theme, _ ->
             findNavController().navigate(
                 HomeFragmentDirections.actionHomeFragmentToSubThemesFragment(theme)
             )
