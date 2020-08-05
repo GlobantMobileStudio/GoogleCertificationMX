@@ -18,9 +18,9 @@
     <dimen name="small_text_size">14sp</dimen>
     <dimen name="tiny_text_size">12sp</dimen>
 
-    <!--Overview Fragment-->
-    <dimen name="overview_frag_competency_item_height">62dp</dimen>
-    <dimen name="overview_frag_competency_item_arrow_width">14dp</dimen>
-    <dimen name="overview_frag_profile_image_size">102dp</dimen>
+    <!--Home Fragment-->
+    <dimen name="home_frag_theme_item_height">62dp</dimen>
+    <dimen name="home_frag_theme_item_arrow_width">14dp</dimen>
+    <dimen name="home_frag_profile_image_size">102dp</dimen>
 
 </resources>

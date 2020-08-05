@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.mobilestudio.developer.features.home.views.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_subThemesFragment"
+            app:destination="@id/subThemesFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/subThemesFragment"
+        android:name="com.mobilestudio.developer.features.subthemes.views.fragments.SubThemesFragment"
+        android:label="fragment_sub_themes"
+        tools:layout="@layout/fragment_sub_themes">
+        <action
+            android:id="@+id/action_subThemesFragment_to_themeDetailFragment"
+            app:destination="@id/themeDetailFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
+        <argument
+            android:name="theme"
+            app:argType="com.mobilestudio.developer.features.home.models.Theme" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/themeDetailFragment"
+        android:name="com.mobilestudio.developer.features.themedetail.views.fragments.ThemeDetailFragment"
+        android:label="fragment_theme_detail"
+        tools:layout="@layout/fragment_theme_detail">
+        <action
+            android:id="@+id/action_themeDetailFragment_to_webViewerFragment"
+            app:destination="@id/webViewerFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
+        <argument
+            android:name="subTheme"
+            app:argType="com.mobilestudio.developer.features.home.models.Theme$SubTheme" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/webViewerFragment"
+        android:name="com.mobilestudio.developer.features.webviewer.views.fragments.WebViewerFragment"
+        android:label="WebViewerFragment"
+        tools:layout="@layout/fragment_web_viewer" />
+
+</navigation>

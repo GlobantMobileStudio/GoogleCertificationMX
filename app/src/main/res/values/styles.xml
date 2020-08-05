@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorAccent">@color/secondaryColor</item>
@@ -47,11 +47,11 @@
         <item name="android:textSize">@dimen/regular_text_size</item>
     </style>
 
-    <style name="PrimaryOutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+    <style name="PrimaryDarkColorOutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="android:textAppearance">@style/RegularTextStyle</item>
-        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textColor">@color/primaryDarkColor</item>
         <item name="android:textSize">@dimen/regular_text_size</item>
-        <item name="strokeColor">@color/primaryColor</item>
+        <item name="strokeColor">@color/primaryDarkColor</item>
     </style>
 
 </resources>

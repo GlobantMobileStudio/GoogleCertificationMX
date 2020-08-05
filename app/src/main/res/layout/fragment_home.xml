@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/layout_medium_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/layout_medium_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/topGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.06" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/decoratorViewGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="false"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background" />
+
+        <View
+            android:id="@+id/decoratorView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/secondaryColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/decoratorViewGuideline" />
+
+        <TextView
+            android:id="@+id/textViewCurrentUser"
+            style="@style/BoldTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Amanda Smith"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/header_text_size"
+            app:layout_constraintEnd_toEndOf="@id/profileCircleImageView"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toTopOf="@id/topGuideline" />
+
+        <TextView
+            android:id="@+id/textViewPercentage"
+            style="@style/RegularTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_small_margin"
+            android:gravity="center"
+            android:text="5% completed"
+            android:textColor="@color/primaryTextColor"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCurrentUser" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileCircleImageView"
+            android:layout_width="@dimen/home_frag_profile_image_size"
+            android:layout_height="@dimen/home_frag_profile_image_size"
+            android:layout_marginEnd="@dimen/layout_large_margin"
+            android:elevation="@dimen/layout_margin"
+            android:src="@drawable/dev"
+            app:civ_circle_background_color="@color/windowBackground"
+            app:layout_constraintBottom_toBottomOf="@id/themesBarrier"
+            app:layout_constraintEnd_toEndOf="@id/themesCardView"
+            app:layout_constraintTop_toTopOf="@id/themesBarrier" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/themesBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="themesCardView" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/themesCardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/layout_margin"
+            app:cardElevation="@dimen/layout_small_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.48">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/themesRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:paddingTop="@dimen/layout_huge_margin"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="5"
+                tools:listitem="@layout/theme_item_list"
+                tools:orientation="vertical"
+                tools:scrollbars="vertical" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
