@@ -23,4 +23,8 @@
     <dimen name="home_frag_theme_item_arrow_width">14dp</dimen>
     <dimen name="home_frag_profile_image_size">102dp</dimen>
 
+    <!--spaces-->
+    <dimen name="common_standard_dimen_10dp">10dp</dimen>
+    <dimen name="common_standard_dimen_5dp">5dp</dimen>
+
 </resources>

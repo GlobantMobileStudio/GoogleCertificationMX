@@ -11,15 +11,88 @@
         android:layout_height="match_parent"
         tools:context="com.mobilestudio.developer.features.themedetail.views.fragments.ThemeDetailFragment">
 
-        <TextView
-            android:id="@+id/subThemeTitleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Theme Detail"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:layout_margin="@dimen/layout_margin"
+            android:padding="@dimen/common_standard_dimen_10dp"
+            >
+
+            <TextView
+                android:id="@+id/subThemeTitleTextView"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/app_name" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideLineDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.30"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/layout_margin"
+                android:singleLine="false"
+                android:text="@string/theme_detail_short_description"
+                app:layout_constraintTop_toBottomOf="@id/subThemeTitleTextView"
+                app:layout_constraintBottom_toTopOf="@id/guideLineDescription"
+                />
+
+            <LinearLayout
+                android:id="@+id/buttonsContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/layout_margin"
+                app:layout_constraintTop_toBottomOf="@id/guideLineDescription"
+                >
+
+                <Button
+                    android:id="@+id/slidesButton"
+                    style="@style/PrimaryDarkColorOutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/theme_detail_to_slides" />
+
+                <Button
+                    android:id="@+id/exampleButton"
+                    style="@style/PrimaryDarkColorOutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/theme_detail_to_example"
+                    android:layout_marginTop="@dimen/common_standard_dimen_10dp"/>
+
+                <Button
+                    android:id="@+id/githubButton"
+                    style="@style/PrimaryDarkColorOutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/theme_detail_to_github"
+                    android:layout_marginTop="@dimen/common_standard_dimen_10dp"/>
+
+                <Button
+                    android:id="@+id/officialWebsiteButton"
+                    style="@style/PrimaryDarkColorOutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/theme_detail_to_official_website"
+                    android:layout_marginTop="@dimen/common_standard_dimen_10dp"/>
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
