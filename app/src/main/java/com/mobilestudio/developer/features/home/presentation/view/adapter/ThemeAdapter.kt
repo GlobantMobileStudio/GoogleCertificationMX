@@ -1,11 +1,11 @@
-package com.mobilestudio.developer.features.home.adapters
+package com.mobilestudio.developer.features.home.presentation.view.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.mobilestudio.developer.R
 import com.mobilestudio.developer.core.adapter.BaseAdapter
-import com.mobilestudio.developer.features.home.models.Theme
-import com.mobilestudio.developer.features.home.models.ThemeViewHolder
+import com.mobilestudio.developer.features.configuration.data.models.Theme
+import com.mobilestudio.developer.features.home.presentation.view.adapter.viewholder.ThemeViewHolder
 
 class ThemeAdapter : BaseAdapter<Theme>() {
 

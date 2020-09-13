@@ -1,7 +1,6 @@
-package com.mobilestudio.developer.features.home
+package com.mobilestudio.developer.features.configuration.data.models
 
 import com.google.gson.annotations.SerializedName
-import com.mobilestudio.developer.features.home.models.Theme
 
 class LocalConfiguration(
     @SerializedName("competencies")

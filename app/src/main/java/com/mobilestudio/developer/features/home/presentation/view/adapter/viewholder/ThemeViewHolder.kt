@@ -1,7 +1,8 @@
-package com.mobilestudio.developer.features.home.models
+package com.mobilestudio.developer.features.home.presentation.view.adapter.viewholder
 
 import android.view.View
 import com.mobilestudio.developer.core.adapter.BaseViewHolder
+import com.mobilestudio.developer.features.configuration.data.models.Theme
 import kotlinx.android.synthetic.main.theme_item_list.view.*
 
 class ThemeViewHolder(container: View) : BaseViewHolder<Theme>(container) {

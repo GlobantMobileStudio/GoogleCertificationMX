@@ -2,18 +2,18 @@ package com.mobilestudio.developer.features.subthemes.models
 
 import android.view.View
 import com.mobilestudio.developer.core.adapter.BaseViewHolder
-import com.mobilestudio.developer.features.home.models.Theme
+import com.mobilestudio.developer.features.configuration.data.models.SubTheme
 import kotlinx.android.synthetic.main.subtheme_item_list.view.*
 
-class SubThemeViewHolder(container: View) : BaseViewHolder<Theme.SubTheme>(container) {
+class SubThemeViewHolder(container: View) : BaseViewHolder<SubTheme>(container) {
 
     private val titleTextView = container.titleTextView
     private val contentTextView = container.contentTextView
     private val startButton = container.startButton
 
-    private lateinit var listener: (item: Theme.SubTheme, position: Int) -> Unit
+    private lateinit var listener: (item: SubTheme, position: Int) -> Unit
 
-    override fun bind(item: Theme.SubTheme) {
+    override fun bind(item: SubTheme) {
         super.bind(item)
 
         with(item) {
@@ -25,7 +25,7 @@ class SubThemeViewHolder(container: View) : BaseViewHolder<Theme.SubTheme>(conta
         }
     }
 
-    override fun setClickListener(listener: (item: Theme.SubTheme, position: Int) -> Unit) {
+    override fun setClickListener(listener: (item: SubTheme, position: Int) -> Unit) {
         this.listener = listener
     }
 

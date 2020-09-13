@@ -1,4 +1,4 @@
-package com.mobilestudio.developer.features
+package com.mobilestudio.developer.features.main.presentation.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
