@@ -1,3 +1,10 @@
 <resources>
     <string name="start_action">View sample</string>
+
+    <string name="theme_detail_to_slides">Slides</string>
+    <string name="theme_detail_to_example">Example</string>
+    <string name="theme_detail_to_github">Github Web</string>
+    <string name="theme_detail_to_official_website">Official Website</string>
+
+    <string name="theme_detail_short_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sollicitudin, nunc in pharetra tincidunt, massa sapien rhoncus nibh, sed varius nisl ipsum eget metus. Phasellus augue urna, pretium in purus id, posuere dapibus metus. Nam iaculis, eros at gravida porttitor, ligula quam volutpat nunc, a efficitur libero lectus ac lorem. </string>
 </resources>

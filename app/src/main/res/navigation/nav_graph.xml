@@ -57,6 +57,10 @@
         android:id="@+id/webViewerFragment"
         android:name="com.mobilestudio.developer.features.webviewer.views.fragments.WebViewerFragment"
         android:label="WebViewerFragment"
-        tools:layout="@layout/fragment_web_viewer" />
+        tools:layout="@layout/fragment_web_viewer" >
+        <argument
+            android:name="path"
+            app:argType="string" />
+    </fragment>
 
 </navigation>
