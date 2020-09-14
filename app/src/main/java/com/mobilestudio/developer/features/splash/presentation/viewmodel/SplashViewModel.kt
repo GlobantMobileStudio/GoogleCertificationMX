@@ -3,7 +3,7 @@ package com.mobilestudio.developer.features.splash.presentation.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mobilestudio.developer.features.configuration.domain.domain.Configuration
+import com.mobilestudio.developer.features.configuration.domain.models.ConfigurationEntity
 import com.mobilestudio.developer.features.configuration.domain.repository.ConfigurationRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -13,7 +13,7 @@ class SplashViewModel(
     private val configurationRepository: ConfigurationRepository
 ) : ViewModel() {
 
-    private var configuration = MutableLiveData<Configuration>()
+    private var configuration = MutableLiveData<ConfigurationEntity>()
 
     fun getConfiguration() = configuration
 

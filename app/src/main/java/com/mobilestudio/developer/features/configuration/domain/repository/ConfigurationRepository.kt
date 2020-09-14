@@ -1,7 +1,7 @@
 package com.mobilestudio.developer.features.configuration.domain.repository
 
-import com.mobilestudio.developer.features.configuration.domain.domain.Configuration
+import com.mobilestudio.developer.features.configuration.domain.models.ConfigurationEntity
 
 interface ConfigurationRepository {
-    fun loadConfiguration(): Configuration
+    fun loadConfiguration(): ConfigurationEntity
 }

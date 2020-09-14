@@ -33,7 +33,7 @@
             app:popExitAnim="@anim/fragment_close_exit" />
         <argument
             android:name="theme"
-            app:argType="com.mobilestudio.developer.features.configuration.data.models.Theme" />
+            app:argType="com.mobilestudio.developer.features.theme.presentation.model.ThemeModel" />
     </fragment>
 
     <fragment
@@ -50,7 +50,7 @@
             app:popExitAnim="@anim/fragment_close_exit" />
         <argument
             android:name="subTheme"
-            app:argType="com.mobilestudio.developer.features.configuration.data.models.SubTheme" />
+            app:argType="com.mobilestudio.developer.features.theme.presentation.model.SubThemeModel" />
     </fragment>
 
     <fragment

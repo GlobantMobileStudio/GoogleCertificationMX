@@ -2,6 +2,7 @@ package com.mobilestudio.developer.application
 
 import android.app.Application
 import com.mobilestudio.developer.features.configuration.di.configurationModule
+import com.mobilestudio.developer.features.home.di.homeModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -18,7 +19,8 @@ class MobileStudioApplication : Application() {
             modules(
                 listOf(
                     configurationModule,
-                    splashModule
+                    splashModule,
+                    homeModule
                 )
             )
         }

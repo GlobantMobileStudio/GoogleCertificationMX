@@ -4,14 +4,14 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.mobilestudio.developer.R
 import com.mobilestudio.developer.core.adapter.BaseAdapter
-import com.mobilestudio.developer.features.configuration.data.models.SubTheme
 import com.mobilestudio.developer.features.subthemes.models.SubThemeViewHolder
+import com.mobilestudio.developer.features.theme.presentation.model.SubThemeModel
 
-class SubThemeAdapter : BaseAdapter<SubTheme>() {
+class SubThemeAdapter : BaseAdapter<SubThemeModel>() {
 
-    var listener: ((item: SubTheme, position: Int) -> Unit)? = null
+    var listener: ((item: SubThemeModel, position: Int) -> Unit)? = null
 
-    override fun getLayoutId(position: Int, item: SubTheme): Int {
+    override fun getLayoutId(position: Int, item: SubThemeModel): Int {
         return R.layout.subtheme_item_list
     }
 

@@ -1,12 +1,15 @@
-package com.mobilestudio.developer.features.configuration.data.models
+package com.mobilestudio.developer.features.theme.presentation.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
-data class SubTheme(
+@Parcelize
+data class SubThemeModel(
     @SerializedName("title")
     val title: String,
     @SerializedName("link")
     val link: String,
     @SerializedName("class_name")
     val className: String
-)
+) : Parcelable

@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mobilestudio.developer.extentions.observe
-import com.mobilestudio.developer.features.configuration.domain.domain.Configuration
+import com.mobilestudio.developer.features.configuration.domain.models.ConfigurationEntity
 import com.mobilestudio.developer.features.main.presentation.view.MainActivity
 import com.mobilestudio.developer.features.splash.presentation.viewmodel.SplashViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -22,8 +22,8 @@ class SplashActivity : AppCompatActivity() {
         observe(viewModel.getConfiguration(), ::manageConfiguration)
     }
 
-    private fun manageConfiguration(configuration: Configuration) {
-        if (configuration.enable) {
+    private fun manageConfiguration(configurationEntity: ConfigurationEntity) {
+        if (configurationEntity.enable) {
             goMain()
         }
     }
