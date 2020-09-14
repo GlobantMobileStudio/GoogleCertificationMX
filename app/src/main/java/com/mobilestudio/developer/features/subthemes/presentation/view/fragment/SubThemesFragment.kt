@@ -1,4 +1,4 @@
-package com.mobilestudio.developer.features.subthemes.views.fragments
+package com.mobilestudio.developer.features.subthemes.presentation.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.mobilestudio.developer.databinding.FragmentSubThemesBinding
-import com.mobilestudio.developer.features.subthemes.adapters.SubThemeAdapter
+import com.mobilestudio.developer.features.subthemes.presentation.view.fragment.adapter.SubThemeAdapter
 
 class SubThemesFragment : Fragment() {
 
@@ -36,11 +36,14 @@ class SubThemesFragment : Fragment() {
     }
 
     private fun setupSubThemes() {
-        subThemesAdapter = SubThemeAdapter()
+        subThemesAdapter =
+            SubThemeAdapter()
         args.theme.topics?.let { subThemesAdapter?.addAll(it) }
         subThemesAdapter?.listener = { subTheme, _ ->
             findNavController().navigate(
-                SubThemesFragmentDirections.actionSubThemesFragmentToThemeDetailFragment(subTheme)
+                SubThemesFragmentDirections.actionSubThemesFragmentToThemeDetailFragment(
+                    subTheme
+                )
             )
         }
         binding.subThemesRecyclerView.apply {

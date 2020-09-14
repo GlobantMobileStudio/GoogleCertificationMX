@@ -1,10 +1,10 @@
-package com.mobilestudio.developer.features.subthemes.adapters
+package com.mobilestudio.developer.features.subthemes.presentation.view.fragment.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.mobilestudio.developer.R
 import com.mobilestudio.developer.core.adapter.BaseAdapter
-import com.mobilestudio.developer.features.subthemes.models.SubThemeViewHolder
+import com.mobilestudio.developer.features.subthemes.presentation.view.fragment.adapter.viewholder.SubThemeViewHolder
 import com.mobilestudio.developer.features.theme.presentation.model.SubThemeModel
 
 class SubThemeAdapter : BaseAdapter<SubThemeModel>() {

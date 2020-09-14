@@ -1,4 +1,4 @@
-package com.mobilestudio.developer.features.webviewer.views.fragments
+package com.mobilestudio.developer.features.webviewer.presentation.view.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle

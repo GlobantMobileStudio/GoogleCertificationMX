@@ -1,4 +1,4 @@
-package com.mobilestudio.developer.features.themedetail.views.fragments
+package com.mobilestudio.developer.features.themedetail.presentation.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -33,7 +33,9 @@ class ThemeDetailFragment : Fragment() {
         binding.subThemeTitleTextView.text = args.subTheme.title
         slidesButton.setOnClickListener {
             findNavController().navigate(
-                ThemeDetailFragmentDirections.actionThemeDetailFragmentToWebViewerFragment(args.subTheme.link)
+                ThemeDetailFragmentDirections.actionThemeDetailFragmentToWebViewerFragment(
+                    args.subTheme.link
+                )
             )
         }
     }

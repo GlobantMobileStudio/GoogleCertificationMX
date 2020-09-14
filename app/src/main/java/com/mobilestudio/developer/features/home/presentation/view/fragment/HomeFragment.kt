@@ -21,6 +21,11 @@ class HomeFragment : Fragment() {
 
     private lateinit var themesAdapter: ThemeAdapter
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setUpObservers()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,17 +35,9 @@ class HomeFragment : Fragment() {
             this.lifecycleOwner = viewLifecycleOwner
             this.executePendingBindings()
         }
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         setupThemes()
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setUpObservers()
+        viewModel.init()
+        return binding.root
     }
 
     private fun setupThemes() {

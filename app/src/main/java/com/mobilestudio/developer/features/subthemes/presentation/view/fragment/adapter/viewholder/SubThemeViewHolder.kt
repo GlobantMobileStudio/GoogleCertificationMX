@@ -1,4 +1,4 @@
-package com.mobilestudio.developer.features.subthemes.models
+package com.mobilestudio.developer.features.subthemes.presentation.view.fragment.adapter.viewholder
 
 import android.view.View
 import com.mobilestudio.developer.core.adapter.BaseViewHolder

@@ -19,7 +19,7 @@ class HomeViewModel(
 
     fun getThemes() = themes
 
-    init {
+    fun init() {
         loadThemes()
     }
 
