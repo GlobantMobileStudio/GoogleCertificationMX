@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.mobilestudio.developer.features.home.views.fragments.HomeFragment"
+        android:name="com.mobilestudio.developer.features.home.presentation.view.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/subThemesFragment"
-        android:name="com.mobilestudio.developer.features.subthemes.views.fragments.SubThemesFragment"
+        android:name="com.mobilestudio.developer.features.subthemes.presentation.view.fragment.SubThemesFragment"
         android:label="fragment_sub_themes"
         tools:layout="@layout/fragment_sub_themes">
         <action
@@ -33,12 +33,12 @@
             app:popExitAnim="@anim/fragment_close_exit" />
         <argument
             android:name="theme"
-            app:argType="com.mobilestudio.developer.features.home.models.Theme" />
+            app:argType="com.mobilestudio.developer.features.theme.presentation.model.ThemeModel" />
     </fragment>
 
     <fragment
         android:id="@+id/themeDetailFragment"
-        android:name="com.mobilestudio.developer.features.themedetail.views.fragments.ThemeDetailFragment"
+        android:name="com.mobilestudio.developer.features.themedetail.presentation.view.fragment.ThemeDetailFragment"
         android:label="fragment_theme_detail"
         tools:layout="@layout/fragment_theme_detail">
         <action
@@ -50,12 +50,12 @@
             app:popExitAnim="@anim/fragment_close_exit" />
         <argument
             android:name="subTheme"
-            app:argType="com.mobilestudio.developer.features.home.models.Theme$SubTheme" />
+            app:argType="com.mobilestudio.developer.features.theme.presentation.model.SubThemeModel" />
     </fragment>
 
     <fragment
         android:id="@+id/webViewerFragment"
-        android:name="com.mobilestudio.developer.features.webviewer.views.fragments.WebViewerFragment"
+        android:name="com.mobilestudio.developer.features.webviewer.presentation.view.fragment.WebViewerFragment"
         android:label="WebViewerFragment"
         tools:layout="@layout/fragment_web_viewer" >
         <argument
